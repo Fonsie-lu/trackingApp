@@ -12,6 +12,7 @@ const LogEntryForm = ({ location, onClose }) => {
       data.latitude = location.latitude;
       data.longitude = location.longitude;
       await createLogEntry(data);
+      console.log(data);
       onClose();
     } catch (error) {
       console.log(error);
@@ -30,7 +31,7 @@ const LogEntryForm = ({ location, onClose }) => {
       <label htmlFor="description">Description</label>
       <textarea name="description" rows={3} ref={register}></textarea>
       <label htmlFor="image">Image</label>
-      <input name="image" />
+      <input name="image" ref={register} />
       <label htmlFor="visitDate">Visit Date</label>
       <input name="visitDate" type="date" required ref={register} />
       <button disabled={loading}>{loading ? "Loading..." : "Submit"}</button>
